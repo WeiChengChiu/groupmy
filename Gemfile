@@ -6,6 +6,9 @@ gem 'bootstrap-sass'
 # Use simple_form to facilitate forms
 gem 'simple_form'
 
+# Use devise to facilitate lgoin management
+gem 'devise'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
