@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @posts = @group.posts
   end
 
   def new
@@ -23,6 +24,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @posts = @group.posts
   end
 
   def update
