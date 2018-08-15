@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :find_group, only: [:new, :create, :edit, :update, :destroy]
   before_action :find_post, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def new
     @post = @group.posts.build
