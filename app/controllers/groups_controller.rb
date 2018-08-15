@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :find_group, only: [:show, :edit, :update, :destroy]
+  before_action :find_user_group, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
@@ -48,7 +48,7 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:title, :description)
   end
 
-  def find_group
+  def find_user_group
     @group = current_user.groups.find(params[:id])
   end
 
