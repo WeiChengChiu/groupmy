@@ -2,7 +2,7 @@
   <%= render 'common/user_nav' %>
 
   <div class="group">
-    <%= link_to("New group", new_group_path, class: "btn btn-mini btn-primary pull-right") %>
+    <%= render_group_new_button %>
   </div>
   <table class="table">
     <thead>
@@ -17,15 +17,10 @@
     <tbody>
       <% @groups.each do |group| %>
         <tr>
-          <td><%= link_to(group.title, group_path(group.id)) %></td>
-          <td><%= group.description %></td>
+          <td><%= render_group_button(group) %></td>
+          <td><%= render_group_description(group) %></td>
           <td><%= group.owner.try(:name) %></td>
-          <td>
-            <% if current_user && group.editable_by?(current_user) %>
-              <%= link_to("Edit", edit_group_path(group), class: "btn btn-mini") %>
-              <%= link_to("Delete", group_path(group), class: "btn btn-mini", method: :delete, data: { confirm: "Are you sure?" }) %>
-            <% end %>
-          </td>
+          <td><%= render_group_management_button(group) %></td>
         </tr>
       <% end %>
     </tbody>
