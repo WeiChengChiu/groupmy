@@ -90,6 +90,7 @@ GEM
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
+    populator (1.0.0)
     rack (1.6.10)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -180,6 +181,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  populator
   rails (= 4.2.3)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
