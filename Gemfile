@@ -53,6 +53,11 @@ group :development, :test do
   gem 'spring'
 
   gem 'sqlite3'
+
+  # capistrano for auto deploy
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+  gem "capistrano-rbenv"
 end
 
 group :production do
