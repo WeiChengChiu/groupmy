@@ -15,4 +15,6 @@ set :default_stage, "production"
 
 append :linked_files, 'config/database.yml', 'config/secrets.yml'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
-set :passenger_restart_with_touch, true
+
+after 'deploy:publishing', 'deploy:restart'
+after 'deploy:restart', 'unicorn:reload'
