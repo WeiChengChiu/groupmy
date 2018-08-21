@@ -17,4 +17,4 @@ append :linked_files, 'config/database.yml', 'config/secrets.yml'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
 
 after 'deploy:publishing', 'deploy:restart'
-after 'deploy:restart', 'unicorn:reload'
+after 'deploy:restart', 'unicorn:restart'
