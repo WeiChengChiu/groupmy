@@ -8,7 +8,7 @@
     <%= render_group_edit_button(@group) %>
   </div>
   <h2><%= render_group_title(@group) %></h2>
-  <p><%= @group.description %></p>
+  <p><%= @group.try(:description) %></p>
 
   <table class="table">
     <tbody>

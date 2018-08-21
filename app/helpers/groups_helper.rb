@@ -10,7 +10,7 @@ module GroupsHelper
 
   # truncate
   def render_group_title(group)
-    truncate(group.title, length: 15)
+    truncate(group.try(:title), length: 15)
   end
 
   # buttons
@@ -38,7 +38,7 @@ module GroupsHelper
   def render_group_join_or_quit_button(group)
     if current_user && current_user.is_member_of?(group)
        link_to("Quit Group", quit_group_path(group), method: :post, class: "btn btn-mini")
-    else
+    elsif current_user
        link_to("Join Group", join_group_path(group), method: :post, class: "btn btm-mini")
     end
   end

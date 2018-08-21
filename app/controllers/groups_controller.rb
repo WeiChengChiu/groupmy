@@ -8,6 +8,7 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @group = Group.find(params[:id])
     @posts = @group.try(:posts)
   end
 
@@ -72,7 +73,7 @@ class GroupsController < ApplicationController
   end
 
   def find_user_group
-    @group = current_user.groups.find_by(params[:id])
+    @group = current_user.nil? ? nil : current_user.groups.find_by(params[:id])
   end
 
 end
