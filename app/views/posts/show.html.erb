@@ -1,0 +1,37 @@
+<div class="post">
+  <h3>Post</h3>
+  <p class="post-content"><%= @post.content %></p>
+  <p>
+    Edit by:
+    <%= @post.author.name %>
+    --
+    <%= render_post_created_at(@post)%>
+  </p>
+</div>
+
+
+<h3>Comment</h3>
+<div id="message-list" class="message">
+  <% @messages.each do |message| %>
+    <div class="message">
+      <p>
+        #<%= message.id %>
+        <%= message.user_identify %>
+        --
+        <%= message.created_at %>
+      </p>
+      <p class="message-contents">
+        <%= message.message %>
+      </p>
+    </div>
+  <% end %>
+</div>
+
+<%= simple_form_for [@group, @post, @message], remote: true do |f| %>
+  <div class="form-group">
+    <%= f.input :message, label: 'Comment', class: 'form-controll' %>
+    <div class="form-action">
+      <%= f.submit 'Submit', disable_with: 'Submitting...' %>
+    </div>
+  </div>
+<% end %>

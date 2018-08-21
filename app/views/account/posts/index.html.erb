@@ -13,7 +13,7 @@
     <tbody>
       <% @posts.each do |post| %>
         <tr>
-          <td><p><%= simple_format(post.content) %></p></td>
+          <td><p><%= render_post_show_button_of_group(post.group, post) %></p></td>
           <td><%= render_group_title(post.group) %></td>
           <td><%= render_post_updated_at(post) %></td>
           <td><%= render_post_management_button_of_group(post.group, post) %></td>
