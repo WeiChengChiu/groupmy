@@ -4,7 +4,15 @@ module PostsHelper
     post.updated_at.to_s(:long)
   end
 
+  def render_post_created_at(post)
+    post.created_at.to_s(:long)
+  end
+
   # buttons
+  def render_post_show_button_of_group(group, post)
+    link_to(post.content, group_post_path(group, post), class: "btn btn-mini")
+  end
+
   def rende_new_post_button_of_group(group)
     if current_user
       link_to("New Post", new_group_post_path(@group), class: "btn btn-mini btn-primary")

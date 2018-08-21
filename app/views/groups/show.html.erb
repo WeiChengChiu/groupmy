@@ -11,12 +11,20 @@
   <p><%= @group.try(:description) %></p>
 
   <table class="table">
+    <thead>
+      <tr>
+        <td>Title</td>
+        <td>Owner</td>
+        <td>Action</td>
+      </tr>
+    </thead>
+
     <tbody>
       <% @posts.each do |post| %>
         <tr>
           <td>
             <span class="author"><strong> Author : <%= post.author.try(:name) %> </strong></span>
-            <p><%= simple_format(post.content) %></p>
+            <p><%= render_post_show_button_of_group(@group, post) %></p>
           </td>
           <td><%= render_post_management_button_of_group(@group, post) %></td>
         </tr>
